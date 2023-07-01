@@ -30,4 +30,3 @@ pip install string-treatment
 # Usage
 To learn about how to use this library and examples,
 [visit the User Guide, which is a Jupyter notebook](https://github.com/guilhermehuther/string_treatment/blob/main/guide.ipynb).
-"# string_treatment" 

@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+src/string_treatment/__init__.py
+src/string_treatment/string_treatment.py
+src/string_treatment.egg-info/PKG-INFO
+src/string_treatment.egg-info/SOURCES.txt
+src/string_treatment.egg-info/dependency_links.txt
+src/string_treatment.egg-info/top_level.txt
