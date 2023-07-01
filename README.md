@@ -11,21 +11,28 @@ Install the latest stable version from PyPI:
 pip install string-treatment
 ```
 
+# Included Functions
+
+String treatment:
+
+* treat_referenced
+* treat_unreferenced
+
 # Quick start
 #### With reference list
 ``` python
->>> from string_treatment import string_treatment as st
+>>> from string_treatment import treat_referenced
 >>> list_of_reference = ['João Pessoa/PB']
 >>> data_with_inconsistency = ['João Pessoa PB', 'Joao pessoa--PB', 'joa pssoa(pb)']
->>> st.treat_referenced(data_with_inconsistency, list_of_reference)
+>>> treat_referenced(data_with_inconsistency, list_of_reference)
 ['João Pessoa PB', 'João Pessoa PB', 'João Pessoa PB']
 ```
 
 #### Without reference list
 ``` python
->>> from string_treatment import string_treatment as st
+>>> from string_treatment import treat_unreferenced
 >>> data_with_inconsistency = ['João Pessoa PB', 'Joao pessoa--PB', 'joa pssoa(pb)']
->>> st.treat_unreferenced(data_with_inconsistency)
+>>> treat_unreferenced(data_with_inconsistency)
 ['João Pessoa PB', 'João Pessoa PB', 'João Pessoa PB']
 ```
 
