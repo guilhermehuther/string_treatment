@@ -3,3 +3,7 @@ setup.cfg
 pyproject.toml
 
 .gitignore
+
+dist/
+
+src/string_treatment.egg-info/
