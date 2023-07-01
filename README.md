@@ -1,4 +1,4 @@
-![downloads](https://img.shields.io/badge/downloads-13k%2Fmonth-brightgreen)
+[![Downloads](https://img.shields.io/github/downloads/guilhermehuther/string_treatment/total.svg)]()
 
 # Overview
 
