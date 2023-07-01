@@ -1,3 +1,5 @@
+[![Downloads](https://static.pepy.tech/personalized-badge/requests?period=total&units=international_system&left_color=black&right_color=blue&left_text=Downloads)](https://pepy.tech/project/requests)
+
 # Overview
 
 **string_treatment** is a library for cleaning and adjusting data with inconsistency.
