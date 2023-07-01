@@ -1,4 +1,4 @@
-[![Downloads](https://img.shields.io/github/downloads/guilhermehuther/string_treatment/total.svg)]()
+[![Downloads](https://static.pepy.tech/badge/string_treatment)](https://pepy.tech/project/string_treatment) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Overview
 
