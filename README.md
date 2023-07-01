@@ -1,4 +1,4 @@
-[![Downloads](https://static.pepy.tech/badge/string_treatment)](https://pepy.tech/project/string_treatment) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Downloads](https://static.pepy.tech/badge/string_treatment)](https://pepy.tech/project/string_treatment) [![PyPI badge](https://badge.fury.io/py/string-treatment.svg)](https://badge.fury.io/py/string-treatment) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Overview
 
