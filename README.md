@@ -13,13 +13,13 @@ pip install string-treatment
 
 # Included Functions
 
-String treatment:
+**String treatment:**
 
 * treat_referenced
 * treat_unreferenced
 
 # Quick start
-#### With reference list
+**With reference list**
 ``` python
 >>> from string_treatment import treat_referenced
 >>> list_of_reference = ['João Pessoa/PB']
@@ -28,7 +28,7 @@ String treatment:
 ['João Pessoa PB', 'João Pessoa PB', 'João Pessoa PB']
 ```
 
-#### Without reference list
+**Without reference list**
 ``` python
 >>> from string_treatment import treat_unreferenced
 >>> data_with_inconsistency = ['João Pessoa PB', 'Joao pessoa--PB', 'joa pssoa(pb)']
