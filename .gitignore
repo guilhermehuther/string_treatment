@@ -7,3 +7,5 @@ pyproject.toml
 dist/
 
 src/string_treatment.egg-info/
+
+testing.ipynb
