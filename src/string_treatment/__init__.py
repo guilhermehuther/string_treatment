@@ -77,7 +77,7 @@ def _build_graph(graph_dict, threshold):
     nx_graph = nx.Graph()
     graph = Network(notebook=True,
                     cdn_resources='remote', 
-                    height="100vh", width="100%")
+                    height="97.5vh", width="100%")
     graph.from_nx(nx_graph)
     count = 0
     
