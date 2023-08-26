@@ -3,6 +3,9 @@ from jellyfish import jaro_winkler_similarity, damerau_levenshtein_distance, ham
 import numpy as np
 import pandas as pd
 
+from pyvis.network import Network
+import networkx as nx
+
 METRICS_DICT = {
   'jaro_winkler_similarity': jaro_winkler_similarity, 
   'damerau_levenshtein_distance': damerau_levenshtein_distance, 
@@ -11,15 +14,19 @@ METRICS_DICT = {
 
 def treat_unreferenced(strings_compared: list[str], 
                        metric: str = 'jaro_winkler_similarity', 
-                       threshold: float = 0.8):
+                       threshold: float = 0.8,
+                       graph: bool = True):
   '''    
   :param: strings_compared: List of strings to be compared.
   :param: metrics: Metric to be used similiraty measurement of distance between strings.
   :param: threshold: Threshold for the metrics similarity values.
-  
+  :param: graph: If True generate graph structure of relacions on a file 'graph_{threshold}.html'.
+
   :return: List of strings 'corrected'.
   '''
-
+  
+  graph_dict = dict()
+  
   try:
     metric = METRICS_DICT[metric]
   except:
@@ -33,6 +40,7 @@ def treat_unreferenced(strings_compared: list[str],
     distances = dict()
     if strings_compared[i] in already_corrected: 
       continue
+    
     for j in range(i, len(strings_compared)):  
       if strings_compared[j] in already_corrected: 
         continue
@@ -50,12 +58,48 @@ def treat_unreferenced(strings_compared: list[str],
       continue
     
     all_distances_max_string = all_distances[all_distances[0] == max(all_distances[0])]['level_0'].values[0] 
-    
-    already_corrected.append(all_distances_max_string)  
+
+    if graph:
+      graph_dict[all_distances_max_string] = tuple(zip(all_distances['level_0'].values[1:], all_distances[0].values[1:]))
+      
+      already_corrected.append(all_distances_max_string)  
       
     strings_compared = np.where(np.isin(strings_compared, all_distances['level_0'].values) == True, all_distances_max_string, strings_compared) 
-    
+  
+  _build_graph(graph_dict, threshold)
+        
   return strings_compared
+
+def _build_graph(graph_dict, threshold):
+    if len(graph_dict) == 0:
+        return
+      
+    nx_graph = nx.Graph()
+    graph = Network(notebook=True,
+                    cdn_resources='remote', 
+                    height="100vh", width="100%")
+    graph.from_nx(nx_graph)
+    count = 0
+    
+    for central_node, nodes in graph_dict.items():
+        graph.add_node(count, label = central_node, title = '1.00')
+        i = count
+        graph.nodes[count]['group'] = i
+        count += 1
+        for node in nodes:
+            name = node[0]
+            value = node[1]
+            
+            graph.add_node(count, label = name, title = f'{value:.2f}')
+            graph.nodes[count]['group'] = i
+            
+            graph.add_edge(i, count, value = value)
+            
+            count += 1
+
+    graph.show(f"graph_{threshold}.html")
+
+    return
 
 
 def treat_referenced(strings_compared: list[str], 
