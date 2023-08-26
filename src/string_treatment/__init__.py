@@ -20,7 +20,7 @@ def treat_unreferenced(strings_compared: list[str],
   :param: strings_compared: List of strings to be compared.
   :param: metrics: Metric to be used similiraty measurement of distance between strings.
   :param: threshold: Threshold for the metrics similarity values.
-  :param: graph: If True generate graph structure of relacions on a file 'graph_{threshold}.html'.
+  :param: graph: If True generate graph structure of relations on a file 'graph_{threshold}.html'.
 
   :return: List of strings 'corrected'.
   '''
