@@ -11,3 +11,5 @@ src/string_treatment.egg-info/
 testing.ipynb
 
 test.py
+
+.gitattributes
