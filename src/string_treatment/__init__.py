@@ -16,15 +16,28 @@ def treat_unreferenced(strings_compared: list[str],
                        metric: str = 'jaro_winkler_similarity', 
                        threshold: float = 0.8,
                        graph: bool = True):
-  '''    
-  :param: strings_compared: List of strings to be compared.
-  :param: metrics: Metric to be used similiraty measurement of distance between strings.
-  :param: threshold: Threshold for the metrics similarity values.
-  :param: graph: If True generate graph structure of relations on a file 'graph_{threshold}.html'.
-
-  :return: List of strings 'corrected'.
-  '''
+  """ 
+  Use metrics of distance between words characters to correct strings,
+  without a reference list of strings to compare.
   
+  Parameters
+  ----------   
+  strings_compared: list
+      List of strings to be compared.
+  metrics: str
+      Metric to be used similiraty measurement of distance between strings. 
+      Must be a string within: 'jaro_winkler_similarity' or 'damerau_levenshtein_distance' or 'hamming_distance'.
+  threshold: float 
+      Threshold for the metrics similarity values.
+  graph: bool
+      If True generate graph structure of relations on a file 'graph_{threshold}.html'.
+      
+  Return
+  ----------
+  strings_compared: list
+      List of strings 'corrected'.
+  """
+
   graph_dict = dict()
   
   try:
@@ -105,13 +118,24 @@ def _build_graph(graph_dict, threshold):
 def treat_referenced(strings_compared: list[str], 
                      reference: list[str],
                      metric: str = 'jaro_winkler_similarity'):
-  '''    
-  :param: strings_compared: List of strings to be compared.
-  :param: reference: List of reference strings.
-  :param: metric: Metric to be used as similiraty measurement of distance between strings.
+  """ 
+  Use metrics of distance between words characters to correct strings,
+  with a reference list of strings to compare.
   
-  :return: List of strings 'corrected'.
-  '''
+  Parameters
+  ----------   
+  strings_compared: list
+      List of strings to be compared.
+  reference: int
+      List of reference strings.
+  metric: int 
+      Metric to be used as similiraty measurement of distance between strings.
+      
+  Return
+  ----------
+  strings_corrected: list
+      List of strings 'corrected'.
+  """
   
   try:
     metric = METRICS_DICT[metric]
