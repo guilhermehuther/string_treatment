@@ -1,13 +1,6 @@
-setup.cfg
+__pycache__/
+.venv/
+venv/
 
-pyproject.toml
-
-.gitignore
-
-dist/
-
-src/string_treatment.egg-info/
-
-testing.ipynb
-
-test.py
+tests/city_example_output.json
+tests/output_graph.html
