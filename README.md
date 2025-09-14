@@ -8,7 +8,7 @@ This library uses string similarity from [rapidfuzz](https://github.com/rapidfuz
 
 Since the clustering process may not always be perfectly accurate, the library can generate an interactive graph to help visualize the groupings.
 
-![example graph](./docs/graph.png)
+![example graph](https://github.com/guilhermehuther/string_treatment/blob/main/docs/graph.png)
 
 # Installation
 
@@ -20,4 +20,4 @@ pip install string-treatment
 
 # Example
 
-See the testing script in the root: [test_standardize.py](./test_standardize.py).
+See the testing script in the root: [test_standardize.py](https://github.com/guilhermehuther/string_treatment/blob/main/test/test_standardize.py).
