@@ -1,6 +1,13 @@
 __pycache__/
 .venv/
 venv/
+.pytest_cache/
 
-tests/city_example_output.json
-tests/output_graph.html
+test/city_example_output.json
+test/output_graph.html
+
+
+src/string_treatment.egg-info/*
+uv.lock
+dist/*
+build/*

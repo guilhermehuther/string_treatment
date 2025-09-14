@@ -104,8 +104,12 @@ def _distances(
         ], 
         axis=1
     )
-    
-    df_target = df_raw[[column, 0]]
+
+    try:
+        df_target = df_raw[[column, 0]]
+    except:
+        raise pd.errors.EmptyDataError("No data to standardize after preprocessing.")
+
     df_target.columns = [str(c) + "_target" for c in df_target.columns]
 
     df_input_cols = [c for c in df_raw.columns if type(c) == int and c <= 5]
@@ -242,6 +246,8 @@ def standardize(
 
     :param words: The list of input strings to be standardized.
         It is important to provide the list of words as-is to ensure efficiency.
+        A crucial aspect of this process is the tokenizer, which requires input strings to contain delimiters such as spaces.
+        For example, the word 'João Pessoa - PB' will be tokenized as ['joao', 'pessoa', 'pb'].
     :type words: list[str]
 
     :param threshold: Similarity threshold for clustering strings. Words with a spelling similarity above this value,
@@ -264,6 +270,12 @@ def standardize(
     Example usage and expected input/output can be found in the [README.md](https://github.com/guilhermehuther/string_treatment/blob/main/README.md)
     """
 
+    if not words:
+        raise ValueError("Data cannot be empty.")
+
+    if not isinstance(words, list) or not all(isinstance(w, str) for w in words):
+        raise ValueError(f"Data must be a list[str].")
+
     print("Starting word standardization...")
     
     graph_dict = dict()
@@ -276,6 +288,7 @@ def standardize(
     })
 
     unique_strings = temp_df[column].unique()
+
     count_strings = temp_df[column].value_counts()
 
     transform_dict = {"nan": "nan"}
@@ -300,8 +313,8 @@ def standardize(
         filter_2 = filter_1.copy().reset_index()
         filter_2 = df_distances.loc[filter_1.index]
         filter_2 = filter_2[filter_2.distances.values > threshold].reset_index()
-        if len(filter_2) == 0: 
-            continue 
+        if len(filter_2) == 0:
+            continue
 
         row_centroid = (
             count_strings

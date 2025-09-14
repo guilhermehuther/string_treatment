@@ -1,0 +1,8 @@
+mapply==0.1.30
+networkx==3.5
+nltk==3.9.1
+pandas==2.3.2
+pyvis==0.3.2
+rapidfuzz==3.14.1
+tqdm==4.67.1
+unidecode==1.4.0
