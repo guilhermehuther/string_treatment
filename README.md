@@ -1,41 +1,23 @@
 [![Downloads](https://static.pepy.tech/badge/string-treatment)](https://pepy.tech/project/string-treatment) [![PyPI badge](https://badge.fury.io/py/string-treatment.svg)](https://badge.fury.io/py/string-treatment) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+**string_treatment** is a library for cleaning and adjusting words with inconsistency.
+
 # Overview
 
-**string_treatment** is a library for cleaning and adjusting data with inconsistency.
+This library uses string similarity from [rapidfuzz](https://github.com/rapidfuzz/RapidFuzz) to group words with similar spelling into clusters, mapping each word to the most frequent (canonical) form within its cluster.
+
+Since the clustering process may not always be perfectly accurate, the library can generate an interactive graph to help visualize the groupings.
+
+![example graph](https://github.com/guilhermehuther/string_treatment/blob/main/docs/graph.png)
 
 # Installation
+
 Install the latest stable version from PyPI:
 
 ```shell
 pip install string-treatment
 ```
 
-# Included Functions
+# Example
 
-**String treatment:**
-
-* treat_referenced
-* treat_unreferenced
-
-# Quick start
-**With reference list**
-``` python
->>> from string_treatment import treat_referenced
->>> list_of_reference = ['João Pessoa/PB']
->>> data_with_inconsistency = ['João Pessoa PB', 'Joao pessoa--PB', 'joa pssoa(pb)']
->>> treat_referenced(data_with_inconsistency, list_of_reference)
-['João Pessoa PB', 'João Pessoa PB', 'João Pessoa PB']
-```
-
-**Without reference list**
-``` python
->>> from string_treatment import treat_unreferenced
->>> data_with_inconsistency = ['João Pessoa PB', 'Joao pessoa--PB', 'joa pssoa(pb)']
->>> treat_unreferenced(data_with_inconsistency)
-['João Pessoa PB', 'João Pessoa PB', 'João Pessoa PB']
-```
-
-# Usage
-To learn about how to use this library and examples,
-[visit the User Guide, which is a Jupyter notebook](https://github.com/guilhermehuther/string_treatment/blob/main/guide.ipynb).
+See the testing script in the root: [test_standardize.py](https://github.com/guilhermehuther/string_treatment/blob/main/test/test_standardize.py).

@@ -1,0 +1,29 @@
+[project]
+name = "string-treatment"
+version = "2.0.0"
+authors = [
+    { name="Guilherme Huther", email="guilhermehuther@gmail.com" },
+]
+license = {file = 'LICENSE.txt'}
+description = "For cleaning and adjusting words with inconsistency."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mapply>=0.1.30",
+    "nltk>=3.9.1",
+    "pandas>=2.3.2",
+    "pyvis>=0.3.2",
+    "rapidfuzz>=3.14.1",
+    "tqdm>=4.67.1",
+    "unidecode>=1.4.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.17,<0.9.0"]
+build-backend = "uv_build"
+package = true

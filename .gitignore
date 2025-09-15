@@ -1,13 +1,13 @@
-setup.cfg
+__pycache__/
+.venv/
+venv/
+.pytest_cache/
 
-pyproject.toml
+test/city_example_output.json
+test/output_graph.html
 
-.gitignore
 
-dist/
-
-src/string_treatment.egg-info/
-
-testing.ipynb
-
-test.py
+src/string_treatment.egg-info/*
+uv.lock
+dist/*
+build/*
